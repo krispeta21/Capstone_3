@@ -1,0 +1,158 @@
+result1= result.loc[:,~result.columns.duplicated()]
+
+tx_data = pd.read_csv('data.csv')
+tx_data['InvoiceDate'] = pd.to_datetime(tx_data['InvoiceDate'])
+tx_uk = tx_data.query("Country=='United Kingdom'").reset_index(drop=True)
+
+
+
+DataFrame.apply(self, func[, axis, …])	Apply a function along an axis of the DataFrame.
+DataFrame.applymap(self, func)	Apply a function to a Dataframe elementwise.
+DataFrame.pipe(self, func, \*args, \*\*kwargs)	Apply func(self, *args, **kwargs).
+DataFrame.agg(self, func[, axis])	Aggregate using one or more operations over the specified axis.
+DataFrame.aggregate(self, func[, axis])	Aggregate using one or more operations over the specified axis.
+DataFrame.transform(self, func[, axis])	Call func on self producing a DataFrame with transformed values and that has the same axis length as self.
+DataFrame.groupby(self[, by, axis, level, …])	Group DataFrame or Series using a mapper or by a Series of columns.
+DataFrame.rolling(self, window[, …])	Provide rolling window calculations.
+DataFrame.expanding(self[, min_periods, …])	Provide expanding transformations.
+DataFrame.ewm(self[, com, span, halflife, …])	Provide exponential weighted functions.
+
+
+
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
+
+
+
+from yellow brick.regressor import ResidualsPlot
+from sklearn.linear_model import LinearRegression
+lr=LinearRegression()
+visualizer = ResidualsPlot(Lr)
+visualizer.fit(x_train, y_train)
+visualizer.score(x_test, y_test)
+visualizer.poof() visualizer.poof()
+
+
+Date Time
+import matplotlib.pyplot as plt
+
+
+
+Datetime formatting arguments 
+The strftime() function generates a formatted string from a datetime object, and the strptime() function genereates a datetime object from a string. The following codes let you work with dates exactly as you need to.
+
+%A Weekday name, such as Monday
+%B Month name, such as January 
+%m Month, as a number (01 to 12) 
+%d Day of the month, as a number (01 to 31) 
+%Y Four-digit year, such as 2016 
+%y Two-digit year, such as 16 
+%H Hour, in 24-hour format (00 to 23) 
+%I Hour, in 12-hour format (01 to 12)
+%p AM or PM %M Minutes (00 to 59) 
+%S Seconds (00 to 61) Converting a string to a datetime
+
+Converting a string to a datetime object 
+    new_years = dt.strptime('1/1/2017', '%m/%d/%Y') 
+
+Converting a datetime object to a string 
+    ny_string = dt.strftime(new_years, '%B %d, %Y') 
+    print(ny_string) 
+
+
+order['month']=order['order_purchase_timestamp'].dt.month
+
+
+
+- you can remove the lines with the data if you have your data set is big enough and the percentage of missing values is high (over 50%, for example);
+- you can fill all null variables with 0 is dealing with numerical values;
+- you can use the Imputer class from the scikit-learn library to fill in missing values with the data’s (mean, median, most_frequent)
+- you can also decide to fill up missing values with whatever value comes directly after it in the same column.
+
+
+
+Regression Resources
+
+11 Evaluation Metrics Data Scientists Should Be Familiar with— Lessons from A High-rank Kagglers’ New Book
+
+https://towardsdatascience.com/11-evaluation-metrics-data-scientists-should-be-familiar-with-lessons-from-a-high-rank-kagglers-8596f75e58a7
+
+https://medium.com/sciforce/data-cleaning-and-preprocessing-for-beginners-25748ee00743
+
+
+
+
+The goals of customer LTV include:
+* Distinguish active customers from inactive customers.
+* Generate transaction forecasts for individual customers.
+* Predict the purchase volume of the entire customer base.
+
+
+https://www.shanelynn.ie/select-pandas-dataframe-rows-and-columns-using-iloc-loc-and-ix/#loc-selection
+
+# Select rows with first name Antonio, and all columns between 'city' and 'email'	data.loc[data['first_name'] == 'Antonio', 'city':'email']
+# Select rows where the email column ends with 'hotmail.com', include all columns	data.loc[data['email'].str.endswith("hotmail.com")]
+# Select rows with last_name equal to some values, all columns	data.loc[data['first_name'].isin(['France', 'Tyisha', 'Eric'])]
+	
+	
+	
+	
+	
+
+
+Active vs Inactive Customers
+
+
+
+Customer Lifetime Value
+
+To calculate customer lifetime value you need to calculate average purchase value, and then multiply that number by the average purchase frequency rate to determine customer value. Then, once you calculate average customer lifespan, you can multiply that by customer value to determine customer lifetime value.
+
+
+* Average purchase value 
+* Average purchase frequency 
+* Average customer lifespan 
+* Customer value 
+
+
+Calculate average purchase value: Calculate this number by dividing your company's total revenue in a time period (usually one year) by the number of purchases over the course of that same time period.
+* Total revenue/year 
+* # of purchases 
+
+Calculate average purchase frequency rate: Calculate this number by dividing the number of purchases by the number of unique customers who made purchases during that time period.
+* # of purchases 
+* Number of unique customers: 96096 
+Calculate customer value: Calculate this number by multiplying the average purchase value by the average purchase frequency rate.
+* Average purchase value 
+* Average purchase frequency 
+Calculate average customer lifespan: Calculate this number by averaging the number of years a customer continues purchasing from your company.
+* Average # of years customers continues purchasing 
+* Date of first purchase 
+* Date of last purchase 
+Calculate CLTV: multiply customer value by the average customer lifespan. This will give you the revenue you can reasonably expect an average customer to generate for your company over the course of their relationship with you.
+
+
+
+order_dates=GroupBy.head(self[, n])
+ = daf.groupby(['Team', 'Position']) 
+ 
+ 
+ 
+ 
+ subset : column label or sequence of labels, optional
+Only consider certain columns for identifying duplicates, by default use all of the columns
+
+keep : {‘first’, ‘last’, False}, default ‘first’
+first : Drop duplicates except for the first occurrence.
+last : Drop duplicates except for the last occurrence.
+False : Drop all duplicates.
+inplace : boolean, default False
+Whether to drop duplicates in place or to return a copy
+
+
+
+DataFrame.drop_duplicates(self, subset=None, keep='first', inplace=False)
+
+
+df.sort_values(by=['col1'])
+
